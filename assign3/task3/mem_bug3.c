@@ -2,7 +2,7 @@
 #include <stdlib.h>
 int * makearray(int size,int base){
 
-  int array[size];
+  int * array = malloc(sizeof(int *));
   int j;
 
   for(j=0;j<size;j++)
