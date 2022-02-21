@@ -7,5 +7,9 @@
 void flip_bits(unsigned * x,
               unsigned start,
               unsigned end) {
+  for (int i=0; i<32; i++)
+    {
+      *(x+i) = (*(x+i) & *(x+i));
+    }
     // YOUR CODE HERE
 }
