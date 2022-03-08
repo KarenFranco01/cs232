@@ -8,10 +8,19 @@ int main () {
   int letter_frequency[26] = {0};
   int len, i;
   char buf[MAX_BUF];
-
+  
+  while(fgets(buf, MAX_BUF, stdin)){
+  len = strlen(buf);
+    i = 0; 
   do {
-  } while (len > 1);
-
+    if(buf[i]>='A'&&buf[i]<='Z')
+      letter_frequency[buf[i]-'A']++;
+    else if (buf[i]>='a'&&buf[i]<='z')
+      letter_frequency[buf[i]-'a']++;
+    len--;
+    i++;     
+  } while (len > 0);
+    }
   printf("Distribution of letters in corpus:\n");
   for (i = 0; i < 26; i++) {
     // 'A' is ASCII code 65

@@ -6,7 +6,22 @@ typedef struct node {
 } node_t;
 
 node_t * construct_3_strs() {
-    return NULL;//just to pass compiler, please edit as needed.
+  struct node* x;
+  struct node* y;
+  struct node* z;
+
+  x = malloc(sizeof(node_t));
+  y = malloc(sizeof(node_t));
+  z = malloc(sizeof(node_t));
+  
+  x ->value = "is";
+  y ->value = "awesome";
+  z ->value = "CS232";
+
+  x -> next = y;
+  y -> next = z;
+  z -> next = x;
+
 }
 
 //You can ignore the following code for testing

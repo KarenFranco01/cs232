@@ -11,19 +11,21 @@ int main()
   int i;
   int lowercase, uppercase, digits, other;
   int length;
-  
   puts("Type some text (then ENTER):");
-  
+
+  fgets(text, MAX, stdin);
+  length = strlen(text);
   /* Save typed characters in text[]: */
-    
-  for (i = 0; i < MAX; i++)
-  {
+ /* for (i = 0; i < MAX; i++)  {
     text[i] = getchar();
     if (text[i] == '\n')
+      break;  }
+  length = i;*/
+ /* for (i = 0; i<MAX; i++){
+    text[i] == fgets(text, MAX, stdin);
+    if (text[i] = '/n')
       break;
-  }
-  length = i;
-  
+  }*/
   /* Analyse contents of text[]: */
     
   for (i = lowercase = uppercase = digits = other = 0; i < MAX; i++)
@@ -44,7 +46,7 @@ int main()
   }
   
   puts("\nYou typed:");
-  printf("A string with %d characters\n", length);
+  printf("A string with %d characters\n", length-1);
   printf("\t%d lower case letters\n", lowercase);
   printf("\t%d upper case letters\n", uppercase);
   printf("\t%d digits\n", digits);
