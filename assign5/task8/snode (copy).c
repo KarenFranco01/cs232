@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 struct snode *snode_create(char *s)  
-{ //TODO: implement snode_create, change the prototype to match with header file
+{ //void * data;
   struct snode* node = (struct snode*) malloc(sizeof(struct snode));
   node -> str = malloc(sizeof(char*)*strlen(s) + 1);
   strcpy(node -> str, s);
@@ -13,7 +13,6 @@ struct snode *snode_create(char *s)
 }
 void snode_destroy(struct snode * s) 
 {
- //TODO: implement snode_destroy
   free(s -> str);
   free(s);
   s = NULL;

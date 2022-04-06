@@ -3,7 +3,8 @@
 #include <string.h>
 struct snode {
   char str[101];
-  int length;
+  int len;
+  char node1[101];
   struct snode *next;
 };
 

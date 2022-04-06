@@ -4,17 +4,42 @@
 typedef struct snode node_t;
 
 node_t * setup() {
-    //TODO:copy setup func from previous task
+  node_t * head;
+  node_t* node1;
+  head = malloc(sizeof(node_t*));
+  node1 = malloc(sizeof(node_t*));
+  
+  strcpy(head -> str, "hello");
+  head -> len = 5;
+  
+  strcpy(node1 -> str, "there");
+  node1 -> len = 5;
+  
+  head -> next = node1;
+  
+  node1 = malloc(sizeof(node_t*));
+  strcpy(node1 -> str, "prof");
+  node1 -> len = 4;
+  head -> next -> next = node1;
+  return head;
 }
 
-void teardown(/*what parameter?*/) {
-    //TODO: free all dynamic memory you requested.
-    //Please complete the prototype of teardown.
-    //You are not allowed to use globals
+void teardown(node_t* head) {
+  node_t* tmp = head;
+  while (head != NULL){
+    tmp = tmp -> next;
+    head = tmp;
+  }
+ free(tmp);
 }
 
-void add(node_t ** head, char * str, int length){
-    //TODO: copy add func from task2
+void add(node_t ** head, char * str, int len){
+  node_t* temp = malloc(sizeof(node_t*));
+  strcpy(temp -> str, str);
+  temp -> len = len;
+  temp -> next = *head;
+  *head = temp;
+  free(temp);
 }
 void delete_node_at(node_t ** head, int idx) {
     //TODO: implement delete a node based on index
@@ -31,7 +56,7 @@ int main (int argc, char ** argv) {
     delete_node_key(&head, "prof");
     delete_node_at(&head, 0);
     dump_all(head);
-    teardown(/*what argument?*/);
+    teardown(head);
     return 0;
 }
 
